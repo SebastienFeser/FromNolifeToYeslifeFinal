@@ -16,10 +16,10 @@ MonoBehaviour:
   taskCategory: 0
   physicalConditionOutput: 0
   motivationOutput: 0
-  mentalHealthOutput: 10
+  mentalHealthOutput: 0
   socialIntegrationOutput: 0
   sociableOutput: 0
   moneyOutput: 0
   ideasOutput: 0
-  isUnlocked: 1
+  isUnlocked: 0
   hasQTE: 0
