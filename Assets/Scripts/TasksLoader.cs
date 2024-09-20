@@ -6,7 +6,12 @@ public class TasksLoader : MonoBehaviour
 {
     Task[] newTaskList;
 
-    private void Start()
+    public Task[] NewTaskList
+    {
+        get { return newTaskList; }
+    }
+
+    private void Awake()
     {
         LoadTasks();
     }
