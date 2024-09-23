@@ -14,6 +14,8 @@ public class TabsManager : MonoBehaviour
 
     [SerializeField] GameObject draggableTask;
     // Start is called before the first frame update
+
+    [SerializeField] List<GameObject> tasksLoaded;
     void Start()
     {
         tasksLoader = FindObjectOfType<TasksLoader>();
@@ -22,6 +24,11 @@ public class TabsManager : MonoBehaviour
 
     public void LoadSocial()
     {
+        foreach(GameObject element in tasksLoaded)
+        {
+            Destroy(element);
+        }
+        tasksLoaded.Clear();
         socialTab.SetActive(true);
         workTab.SetActive(false);
         funTab.SetActive(false);
@@ -35,6 +42,7 @@ public class TabsManager : MonoBehaviour
                 {
                     GameObject newTask = Instantiate(draggableTask, transform);
                     newTask.GetComponentInChildren<TextMeshProUGUI>().text = element.name;
+                    tasksLoaded.Add(newTask);
                 }
             }
         }
@@ -42,6 +50,11 @@ public class TabsManager : MonoBehaviour
 
     public void LoadWork()
     {
+        foreach (GameObject element in tasksLoaded)
+        {
+            Destroy(element);
+        }
+        tasksLoaded.Clear();
         socialTab.SetActive(false);
         workTab.SetActive(true);
         funTab.SetActive(false);
@@ -55,6 +68,7 @@ public class TabsManager : MonoBehaviour
                 {
                     GameObject newTask = Instantiate(draggableTask);
                     newTask.GetComponentInChildren<TextMeshProUGUI>().text = element.name;
+                    tasksLoaded.Add(newTask);
                 }
             }
         }
@@ -62,6 +76,11 @@ public class TabsManager : MonoBehaviour
 
     public void LoadFun()
     {
+        foreach (GameObject element in tasksLoaded)
+        {
+            Destroy(element);
+        }
+        tasksLoaded.Clear();
         socialTab.SetActive(false);
         workTab.SetActive(false);
         funTab.SetActive(true);
@@ -75,6 +94,7 @@ public class TabsManager : MonoBehaviour
                 {
                     GameObject newTask = Instantiate(draggableTask);
                     newTask.GetComponentInChildren<TextMeshProUGUI>().text = element.name;
+                    tasksLoaded.Add(newTask);
                 }
             }
         }
@@ -82,6 +102,11 @@ public class TabsManager : MonoBehaviour
 
     public void LoadIdeas()
     {
+        foreach (GameObject element in tasksLoaded)
+        {
+            Destroy(element);
+        }
+        tasksLoaded.Clear();
         socialTab.SetActive(false);
         workTab.SetActive(false);
         funTab.SetActive(false);
@@ -95,6 +120,7 @@ public class TabsManager : MonoBehaviour
                 {
                     GameObject newTask = Instantiate(draggableTask);
                     newTask.GetComponentInChildren<TextMeshProUGUI>().text = element.name;
+                    tasksLoaded.Add(newTask);
                 }
             }
         }
@@ -102,6 +128,11 @@ public class TabsManager : MonoBehaviour
 
     public void LoadHealth()
     {
+        foreach (GameObject element in tasksLoaded)
+        {
+            Destroy(element);
+        }
+        tasksLoaded.Clear();
         socialTab.SetActive(false);
         workTab.SetActive(false);
         funTab.SetActive(false);
@@ -115,6 +146,7 @@ public class TabsManager : MonoBehaviour
                 {
                     GameObject newTask = Instantiate(draggableTask);
                     newTask.GetComponentInChildren<TextMeshProUGUI>().text = element.name;
+                    tasksLoaded.Add(newTask);
                 }
             }
         }
