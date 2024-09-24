@@ -42,6 +42,7 @@ public class TabsManager : MonoBehaviour
                 {
                     GameObject newTask = Instantiate(draggableTask, transform);
                     newTask.GetComponentInChildren<TextMeshProUGUI>().text = element.name;
+                    newTask.GetComponent<DraggableTask>().SetTask(element);
                     tasksLoaded.Add(newTask);
                 }
             }
@@ -66,8 +67,9 @@ public class TabsManager : MonoBehaviour
             {
                 if (element.taskCategory == Task.TaskCategory.WORK)
                 {
-                    GameObject newTask = Instantiate(draggableTask);
+                    GameObject newTask = Instantiate(draggableTask, transform);
                     newTask.GetComponentInChildren<TextMeshProUGUI>().text = element.name;
+                    newTask.GetComponent<DraggableTask>().SetTask(element);
                     tasksLoaded.Add(newTask);
                 }
             }
@@ -92,8 +94,9 @@ public class TabsManager : MonoBehaviour
             {
                 if (element.taskCategory == Task.TaskCategory.FUN)
                 {
-                    GameObject newTask = Instantiate(draggableTask);
+                    GameObject newTask = Instantiate(draggableTask, transform);
                     newTask.GetComponentInChildren<TextMeshProUGUI>().text = element.name;
+                    newTask.GetComponent<DraggableTask>().SetTask(element);
                     tasksLoaded.Add(newTask);
                 }
             }
@@ -118,8 +121,9 @@ public class TabsManager : MonoBehaviour
             {
                 if (element.taskCategory == Task.TaskCategory.IDEAS)
                 {
-                    GameObject newTask = Instantiate(draggableTask);
+                    GameObject newTask = Instantiate(draggableTask, transform);
                     newTask.GetComponentInChildren<TextMeshProUGUI>().text = element.name;
+                    newTask.GetComponent<DraggableTask>().SetTask(element);
                     tasksLoaded.Add(newTask);
                 }
             }
@@ -144,8 +148,9 @@ public class TabsManager : MonoBehaviour
             {
                 if (element.taskCategory == Task.TaskCategory.HEALTH)
                 {
-                    GameObject newTask = Instantiate(draggableTask);
+                    GameObject newTask = Instantiate(draggableTask, transform);
                     newTask.GetComponentInChildren<TextMeshProUGUI>().text = element.name;
+                    newTask.GetComponent<DraggableTask>().SetTask(element);
                     tasksLoaded.Add(newTask);
                 }
             }

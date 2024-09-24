@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Test
   m_EditorClassIdentifier: 
   name: Test
-  taskCategory: 0
+  taskCategory: 3
   physicalConditionOutput: 0
   motivationOutput: 0
   mentalHealthOutput: 0

@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2509645308530096751}
   - component: {fileID: 1281934511697447870}
   - component: {fileID: 8733628865580298853}
-  - component: {fileID: 7167920553412722271}
+  - component: {fileID: 4261344409492657403}
   m_Layer: 5
-  m_Name: DraggableTask
+  m_Name: DraggedTask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,7 +61,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -77,7 +77,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7167920553412722271
+--- !u!114 &4261344409492657403
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -86,10 +86,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7371837786954298265}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22f3a384558015142b8a9d50c6e910fa, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f62a9293b392e04bb5360794f5a80ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  taskGameobject: {fileID: 7371837786954298265, guid: a844a5ef8bb6f03468d21c9cc8e99bf4, type: 3}
+  task: {fileID: 0}
 --- !u!1 &8524904047091673564
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:

@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 1801845875081146597}
   - component: {fileID: 8846364038661288192}
   - component: {fileID: 913096859020529769}
+  - component: {fileID: 4004143171565455794}
   m_Layer: 5
   m_Name: TimelineButton
-  m_TagString: Untagged
+  m_TagString: TimelineButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,6 +77,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4004143171565455794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1758592418077775188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaf837d5e6b255c46a43d307c1a5af84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taskedSprite: {fileID: 21300000, guid: 50995294132f68748a4e495cdb182c43, type: 3}
+  unTaskedSprite: {fileID: 21300000, guid: 2713dde85affff948960f24841dc718c, type: 3}
+  taskedColor: {r: 0.36078432, g: 0.31764707, b: 0.52156866, a: 1}
+  unTaskedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &4117065145154751738
 GameObject:
   m_ObjectHideFlags: 0
