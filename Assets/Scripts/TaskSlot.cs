@@ -5,12 +5,13 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
 
-public class TaskSlot : MonoBehaviour, IDropHandler
+public class TaskSlot : MonoBehaviour
 {
     [SerializeField] Sprite taskedSprite;
     [SerializeField] Sprite unTaskedSprite;
     [SerializeField] Color taskedColor;
     [SerializeField] Color unTaskedColor;
+    [SerializeField] GameObject deleteButton;
     Task task;
 
     public void DropTask(Task newTask)
@@ -20,14 +21,16 @@ public class TaskSlot : MonoBehaviour, IDropHandler
         TextMeshProUGUI textMeshProUGUI = GetComponentInChildren<TextMeshProUGUI>();
         textMeshProUGUI.text = task.name;
         textMeshProUGUI.color = taskedColor;
+        deleteButton.SetActive(true);
     }
-    public void OnDrop(PointerEventData eventData)
+    
+    public void DeleteTask()
     {
-        //Debug.Log("Dropped");
-        //GameObject dropped = eventData.pointerDrag;
-        //Debug.Log(dropped.GetComponent<DraggedTask>());
-        //task = dropped.GetComponent<DraggedTask>().task;
-        //GetComponent<Image>().sprite = taskedSprite;
-        //GetComponentInChildren<TextMeshProUGUI>().text = task.name;
+        task = null;
+        GetComponent<Image>().sprite = unTaskedSprite;
+        TextMeshProUGUI textMeshProUGUI = GetComponentInChildren<TextMeshProUGUI>();
+        textMeshProUGUI.text = "Drag a Task";
+        textMeshProUGUI.color = unTaskedColor;
+        deleteButton.SetActive(false);
     }
 }
