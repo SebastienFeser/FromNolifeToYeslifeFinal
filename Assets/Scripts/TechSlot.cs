@@ -6,13 +6,14 @@ using TMPro;
 public class TechSlot : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI text;
-    [SerializeField] ScriptableObject task;
+    [SerializeField] Task task;
     [SerializeField] List<TechSlot> nextUnlockedTechs;
     [SerializeField] GameObject link;
-    List<GameObject> links;
+    List<GameObject> links = new List<GameObject>();
 
-    private void Start()
+    private void Awake()
     {
+        SetTechnology();
         CreateLinks();
     }
 
@@ -25,8 +26,13 @@ public class TechSlot : MonoBehaviour
             newLink.transform.position = (element.transform.position + transform.position) / 2;
             RectTransform rectTransform = newLink.GetComponent<RectTransform>();
             rectTransform.sizeDelta = new Vector2(rectTransform.sizeDelta.x, Vector2.Distance(transform.position, element.transform.position));
-            newLink.transform.eulerAngles = new Vector3(0,0,(180/Mathf.PI)*(Mathf.Atan2(Mathf.Abs(element.transform.position.x - transform.position.x),Mathf.Abs(element.transform.position.y - transform.position.y))));
+            newLink.transform.eulerAngles = new Vector3(0,0,-(180/Mathf.PI)*(Mathf.Atan2(element.transform.position.x - transform.position.x,element.transform.position.y - transform.position.y)));
             links.Add(newLink);
         }
+    }
+
+    void SetTechnology()
+    {
+        text.text = task.name;
     }
 }

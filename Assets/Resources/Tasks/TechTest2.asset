@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e880f399e55b7924a8d504c30a06490d, type: 3}
   m_Name: TechTest2
   m_EditorClassIdentifier: 
-  name: 
+  name: Tech Test 2
   taskCategory: 0
   physicalConditionOutput: 0
   motivationOutput: 0
