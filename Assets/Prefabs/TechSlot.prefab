@@ -89,6 +89,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d43966726e76db4b994faeb16c3e823, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text: {fileID: 5017048971103890333}
+  task: {fileID: 0}
+  nextUnlockedTechs: []
+  link: {fileID: 7634296380288422932, guid: 0ff439bd5c9abf0428815024b355d76f, type: 3}
 --- !u!1 &7347047764385354881
 GameObject:
   m_ObjectHideFlags: 0
