@@ -2263,17 +2263,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1565114278 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1187359362135666072, guid: bf722d1deb0d75048ab824d8ea16f5c4, type: 3}
-  m_PrefabInstance: {fileID: 566261456787928770}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d43966726e76db4b994faeb16c3e823, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &1599281147 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1801845875081146597, guid: 41c1aa5fc5a738f4389bd486a4950096, type: 3}
@@ -2952,10 +2941,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 144512416}
     m_Modifications:
-    - target: {fileID: 954378597154261757, guid: bf722d1deb0d75048ab824d8ea16f5c4, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -200
-      objectReference: {fileID: 0}
     - target: {fileID: 4011307924508477340, guid: bf722d1deb0d75048ab824d8ea16f5c4, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3040,18 +3025,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TechTree
       objectReference: {fileID: 0}
-    - target: {fileID: 6036158034763797723, guid: bf722d1deb0d75048ab824d8ea16f5c4, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8767584215008898562, guid: bf722d1deb0d75048ab824d8ea16f5c4, type: 3}
-      propertyPath: nextUnlockedTechs.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8767584215008898562, guid: bf722d1deb0d75048ab824d8ea16f5c4, type: 3}
-      propertyPath: nextUnlockedTechs.Array.data[0]
-      value: 
-      objectReference: {fileID: 1565114278}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
