@@ -19,10 +19,10 @@ public class Task : ScriptableObject
 
     public int physicalConditionOutput;
     public int motivationOutput;
-    public int mentalHealthOutput;
-    public int socialIntegrationOutput;
+    public int societalIntegrationOutput;
     public int sociableOutput;
     public int moneyOutput;
+    public int mentalHealthOutput;
     public int ideasOutput;
 
     public bool isUnlocked;

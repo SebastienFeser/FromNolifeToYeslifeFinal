@@ -12,12 +12,12 @@ public class TechTree : MonoBehaviour
     [SerializeField] TechSlot startSlot;
     TechSlot registeredTechSlot;
     [SerializeField] GameObject techSlotValidation;
-    TasksManager tasksManager;
+    PlayerManager playerManager;
 
     void Awake()
     {
         startPosition = techTreeTransform.position;
-        tasksManager = FindObjectOfType<TasksManager>();
+        playerManager = FindObjectOfType<PlayerManager>();
     }
     private void Start()
     {
@@ -61,7 +61,7 @@ public class TechTree : MonoBehaviour
     public void ValidateTechnologyBuy()
     {
         registeredTechSlot.BuyTechnology();
-        tasksManager.AddTask(registeredTechSlot.GetTask());
+        playerManager.AddTask(registeredTechSlot.GetTask());
         techSlotValidation.SetActive(false);
     }
 

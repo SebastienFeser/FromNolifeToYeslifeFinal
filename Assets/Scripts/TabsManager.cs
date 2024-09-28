@@ -5,7 +5,7 @@ using TMPro;
 
 public class TabsManager : MonoBehaviour
 {
-    private TasksManager taskManager;
+    private PlayerManager playerManager;
     [SerializeField] GameObject socialTab;
     [SerializeField] GameObject workTab;
     [SerializeField] GameObject funTab;
@@ -18,7 +18,7 @@ public class TabsManager : MonoBehaviour
     [SerializeField] List<GameObject> tasksLoaded = new List<GameObject>();
     void Start()
     {
-        taskManager = FindObjectOfType<TasksManager>();
+        playerManager = FindObjectOfType<PlayerManager>();
         LoadSocial();
     }
 
@@ -34,7 +34,7 @@ public class TabsManager : MonoBehaviour
         funTab.SetActive(false);
         ideasTab.SetActive(false);
         healthTab.SetActive(false);
-        foreach(Task element in taskManager.UnlockedTasks)
+        foreach(Task element in playerManager.UnlockedTasks)
         {
             if(element.taskCategory == Task.TaskCategory.SOCIAL)
             {
@@ -58,7 +58,7 @@ public class TabsManager : MonoBehaviour
         funTab.SetActive(false);
         ideasTab.SetActive(false);
         healthTab.SetActive(false);
-        foreach (Task element in taskManager.UnlockedTasks)
+        foreach (Task element in playerManager.UnlockedTasks)
         {
             if (element.taskCategory == Task.TaskCategory.WORK)
             {
@@ -82,7 +82,7 @@ public class TabsManager : MonoBehaviour
         funTab.SetActive(true);
         ideasTab.SetActive(false);
         healthTab.SetActive(false);
-        foreach (Task element in taskManager.UnlockedTasks)
+        foreach (Task element in playerManager.UnlockedTasks)
         {
             if (element.taskCategory == Task.TaskCategory.FUN)
             {
@@ -106,7 +106,7 @@ public class TabsManager : MonoBehaviour
         funTab.SetActive(false);
         ideasTab.SetActive(true);
         healthTab.SetActive(false);
-        foreach (Task element in taskManager.UnlockedTasks)
+        foreach (Task element in playerManager.UnlockedTasks)
         {
             if (element.taskCategory == Task.TaskCategory.IDEAS)
             {
@@ -130,7 +130,7 @@ public class TabsManager : MonoBehaviour
         funTab.SetActive(false);
         ideasTab.SetActive(false);
         healthTab.SetActive(true);
-        foreach (Task element in taskManager.UnlockedTasks)
+        foreach (Task element in playerManager.UnlockedTasks)
         {
             if (element.taskCategory == Task.TaskCategory.HEALTH)
             {
