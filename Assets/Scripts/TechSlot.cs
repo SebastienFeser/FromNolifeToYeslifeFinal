@@ -76,4 +76,9 @@ public class TechSlot : MonoBehaviour
         }
         isBought = true;
     }
+
+    public Task GetTask()
+    {
+        return task;
+    }
 }

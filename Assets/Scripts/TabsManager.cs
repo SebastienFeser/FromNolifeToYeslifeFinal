@@ -5,7 +5,7 @@ using TMPro;
 
 public class TabsManager : MonoBehaviour
 {
-    private TasksLoader tasksLoader;
+    private TasksManager taskManager;
     [SerializeField] GameObject socialTab;
     [SerializeField] GameObject workTab;
     [SerializeField] GameObject funTab;
@@ -15,10 +15,10 @@ public class TabsManager : MonoBehaviour
     [SerializeField] GameObject draggableTask;
     // Start is called before the first frame update
 
-    [SerializeField] List<GameObject> tasksLoaded;
+    [SerializeField] List<GameObject> tasksLoaded = new List<GameObject>();
     void Start()
     {
-        tasksLoader = FindObjectOfType<TasksLoader>();
+        taskManager = FindObjectOfType<TasksManager>();
         LoadSocial();
     }
 
@@ -34,17 +34,14 @@ public class TabsManager : MonoBehaviour
         funTab.SetActive(false);
         ideasTab.SetActive(false);
         healthTab.SetActive(false);
-        foreach(Task element in tasksLoader.NewTaskList)
+        foreach(Task element in taskManager.UnlockedTasks)
         {
-            if(element.isUnlocked)
+            if(element.taskCategory == Task.TaskCategory.SOCIAL)
             {
-                if(element.taskCategory == Task.TaskCategory.SOCIAL)
-                {
-                    GameObject newTask = Instantiate(draggableTask, transform);
-                    newTask.GetComponentInChildren<TextMeshProUGUI>().text = element.name;
-                    newTask.GetComponent<DraggableTask>().SetTask(element);
-                    tasksLoaded.Add(newTask);
-                }
+                GameObject newTask = Instantiate(draggableTask, transform);
+                newTask.GetComponentInChildren<TextMeshProUGUI>().text = element.name;
+                newTask.GetComponent<DraggableTask>().SetTask(element);
+                tasksLoaded.Add(newTask);
             }
         }
     }
@@ -61,17 +58,14 @@ public class TabsManager : MonoBehaviour
         funTab.SetActive(false);
         ideasTab.SetActive(false);
         healthTab.SetActive(false);
-        foreach (Task element in tasksLoader.NewTaskList)
+        foreach (Task element in taskManager.UnlockedTasks)
         {
-            if (element.isUnlocked)
+            if (element.taskCategory == Task.TaskCategory.WORK)
             {
-                if (element.taskCategory == Task.TaskCategory.WORK)
-                {
-                    GameObject newTask = Instantiate(draggableTask, transform);
-                    newTask.GetComponentInChildren<TextMeshProUGUI>().text = element.name;
-                    newTask.GetComponent<DraggableTask>().SetTask(element);
-                    tasksLoaded.Add(newTask);
-                }
+                GameObject newTask = Instantiate(draggableTask, transform);
+                newTask.GetComponentInChildren<TextMeshProUGUI>().text = element.name;
+                newTask.GetComponent<DraggableTask>().SetTask(element);
+                tasksLoaded.Add(newTask);
             }
         }
     }
@@ -88,17 +82,14 @@ public class TabsManager : MonoBehaviour
         funTab.SetActive(true);
         ideasTab.SetActive(false);
         healthTab.SetActive(false);
-        foreach (Task element in tasksLoader.NewTaskList)
+        foreach (Task element in taskManager.UnlockedTasks)
         {
-            if (element.isUnlocked)
+            if (element.taskCategory == Task.TaskCategory.FUN)
             {
-                if (element.taskCategory == Task.TaskCategory.FUN)
-                {
-                    GameObject newTask = Instantiate(draggableTask, transform);
-                    newTask.GetComponentInChildren<TextMeshProUGUI>().text = element.name;
-                    newTask.GetComponent<DraggableTask>().SetTask(element);
-                    tasksLoaded.Add(newTask);
-                }
+                GameObject newTask = Instantiate(draggableTask, transform);
+                newTask.GetComponentInChildren<TextMeshProUGUI>().text = element.name;
+                newTask.GetComponent<DraggableTask>().SetTask(element);
+                tasksLoaded.Add(newTask);
             }
         }
     }
@@ -115,17 +106,14 @@ public class TabsManager : MonoBehaviour
         funTab.SetActive(false);
         ideasTab.SetActive(true);
         healthTab.SetActive(false);
-        foreach (Task element in tasksLoader.NewTaskList)
+        foreach (Task element in taskManager.UnlockedTasks)
         {
-            if (element.isUnlocked)
+            if (element.taskCategory == Task.TaskCategory.IDEAS)
             {
-                if (element.taskCategory == Task.TaskCategory.IDEAS)
-                {
-                    GameObject newTask = Instantiate(draggableTask, transform);
-                    newTask.GetComponentInChildren<TextMeshProUGUI>().text = element.name;
-                    newTask.GetComponent<DraggableTask>().SetTask(element);
-                    tasksLoaded.Add(newTask);
-                }
+                GameObject newTask = Instantiate(draggableTask, transform);
+                newTask.GetComponentInChildren<TextMeshProUGUI>().text = element.name;
+                newTask.GetComponent<DraggableTask>().SetTask(element);
+                tasksLoaded.Add(newTask);
             }
         }
     }
@@ -142,17 +130,14 @@ public class TabsManager : MonoBehaviour
         funTab.SetActive(false);
         ideasTab.SetActive(false);
         healthTab.SetActive(true);
-        foreach (Task element in tasksLoader.NewTaskList)
+        foreach (Task element in taskManager.UnlockedTasks)
         {
-            if (element.isUnlocked)
+            if (element.taskCategory == Task.TaskCategory.HEALTH)
             {
-                if (element.taskCategory == Task.TaskCategory.HEALTH)
-                {
-                    GameObject newTask = Instantiate(draggableTask, transform);
-                    newTask.GetComponentInChildren<TextMeshProUGUI>().text = element.name;
-                    newTask.GetComponent<DraggableTask>().SetTask(element);
-                    tasksLoaded.Add(newTask);
-                }
+                GameObject newTask = Instantiate(draggableTask, transform);
+                newTask.GetComponentInChildren<TextMeshProUGUI>().text = element.name;
+                newTask.GetComponent<DraggableTask>().SetTask(element);
+                tasksLoaded.Add(newTask);
             }
         }
     }

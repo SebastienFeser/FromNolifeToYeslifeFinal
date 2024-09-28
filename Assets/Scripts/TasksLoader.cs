@@ -5,15 +5,13 @@ using UnityEngine;
 public class TasksLoader : MonoBehaviour
 {
     Task[] newTaskList;
-
-    public Task[] NewTaskList
-    {
-        get { return newTaskList; }
-    }
+    TasksManager tasksManager;
 
     private void Awake()
     {
         LoadTasks();
+        tasksManager = FindObjectOfType<TasksManager>();
+        tasksManager.LoadTasks(newTaskList);
     }
 
     public void LoadTasks()
