@@ -68,7 +68,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 910f83cffefda29498f25d8db818c751, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 69e0e4ce374087b4883f5b65f948eee4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -94,6 +94,10 @@ MonoBehaviour:
   task: {fileID: 0}
   nextUnlockedTechs: []
   link: {fileID: 7634296380288422932, guid: 0ff439bd5c9abf0428815024b355d76f, type: 3}
+  lockedSprite: {fileID: 21300000, guid: 69e0e4ce374087b4883f5b65f948eee4, type: 3}
+  unlockedSprite: {fileID: 21300000, guid: 0ea4b440593353946b5f87d8ce1c6a0b, type: 3}
+  boughtSprite: {fileID: 21300000, guid: 910f83cffefda29498f25d8db818c751, type: 3}
+  techTree: {fileID: 0}
 --- !u!114 &341687838569047138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,7 +141,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4117706661763047256}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7840831197473096043}
+        m_TargetAssemblyTypeName: TechSlot, Assembly-CSharp
+        m_MethodName: StartBuyTechnology
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7347047764385354881
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,8 +228,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4285284939
-  m_fontColor: {r: 0.29411766, g: 0.25882354, b: 0.42352945, a: 1}
+    rgba: 4293328869
+  m_fontColor: {r: 0.8980393, g: 1, b: 0.90196085, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

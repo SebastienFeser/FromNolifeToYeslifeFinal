@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class TechSlot : MonoBehaviour
@@ -9,10 +10,19 @@ public class TechSlot : MonoBehaviour
     [SerializeField] Task task;
     [SerializeField] List<TechSlot> nextUnlockedTechs;
     [SerializeField] GameObject link;
+    [SerializeField] Sprite lockedSprite;
+    [SerializeField] Sprite unlockedSprite;
+    [SerializeField] Sprite boughtSprite;
+    [SerializeField] TechTree techTree;
     List<GameObject> links = new List<GameObject>();
+    bool isUnlocked = false;
+    bool isBought = false;
 
     private void Awake()
     {
+        techTree = GetComponentInParent<TechTree>();
+        isUnlocked = false;
+        isBought = false;
         SetTechnology();
         CreateLinks();
     }
@@ -34,5 +44,36 @@ public class TechSlot : MonoBehaviour
     void SetTechnology()
     {
         text.text = task.name;
+    }
+
+    public void UnlockTechnology()
+    {
+        isUnlocked = true;
+        GetComponent<Image>().sprite = unlockedSprite;
+    }
+
+    public void StartBuyTechnology()
+    {
+        if(isBought)
+        {
+
+        }
+        else if (!isUnlocked)
+        {
+
+        }
+        else
+        {
+            techTree.BuyTechnology(this);
+        }
+    }
+    public void BuyTechnology()
+    {
+        GetComponent<Image>().sprite = boughtSprite;
+        foreach(TechSlot element in nextUnlockedTechs)
+        {
+            element.UnlockTechnology();
+        }
+        isBought = true;
     }
 }

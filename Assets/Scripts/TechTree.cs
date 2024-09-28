@@ -9,13 +9,19 @@ public class TechTree : MonoBehaviour
     Vector2 startPosition;
     Vector2 offset;
     private Vector3 mouseOrigin;
-    // Start is called before the first frame update
+    [SerializeField] TechSlot startSlot;
+    TechSlot registeredTechSlot;
+    [SerializeField] GameObject techSlotValidation;
+
     void Awake()
     {
         startPosition = techTreeTransform.position;
     }
+    private void Start()
+    {
+        startSlot.UnlockTechnology();
+    }
 
-    // Update is called once per frame
     void Update()
     {
         MoveTechTree();
@@ -42,5 +48,22 @@ public class TechTree : MonoBehaviour
     {
         techTreeTransform.position = startPosition;
         gameObject.SetActive(false);
+    }
+
+    public void BuyTechnology(TechSlot techSlot)
+    {
+        registeredTechSlot = techSlot;
+        techSlotValidation.SetActive(true);
+    }
+
+    public void ValidateTechnologyBuy()
+    {
+        registeredTechSlot.BuyTechnology();
+        techSlotValidation.SetActive(false);
+    }
+
+    public void CancelTechnologyBuy()
+    {
+        techSlotValidation.SetActive(false);
     }
 }
