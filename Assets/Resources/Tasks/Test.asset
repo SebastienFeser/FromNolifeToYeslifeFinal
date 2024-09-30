@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: Test
   m_EditorClassIdentifier: 
   name: Test
+  description: This is a test Task
   taskCategory: 4
-  physicalConditionOutput: 0
-  motivationOutput: 0
-  mentalHealthOutput: 0
-  socialIntegrationOutput: 0
-  sociableOutput: 0
+  physicalConditionOutput: 3
+  motivationOutput: -2
+  societalIntegrationOutput: 0
+  sociableOutput: 4
   moneyOutput: 0
-  ideasOutput: 0
+  mentalHealthOutput: 0
+  ideasOutput: 1
   isUnlocked: 1
   hasQTE: 0

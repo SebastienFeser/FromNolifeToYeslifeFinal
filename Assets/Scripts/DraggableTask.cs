@@ -5,25 +5,32 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
 
-public class DraggableTask : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class DraggableTask : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] GameObject taskGameobject;
+    [SerializeField] GameObject screenHover;
 
     GameObject instantiatedTask;
     Task task;
     GraphicRaycaster graphicRaycaster;
     PointerEventData pointerEventData;
     EventSystem eventSystem;
+    PlayerManager playerManager;
+
+    bool isHovered = false;
+    bool isDragging = false;
 
     private void Start()
     {
         graphicRaycaster = GameObject.FindWithTag("TaskSlots").GetComponent<GraphicRaycaster>(); ;
         eventSystem = FindObjectOfType<EventSystem>();
-        Debug.Log(graphicRaycaster.gameObject.name);
-        Debug.Log(eventSystem);
+        playerManager = FindObjectOfType<PlayerManager>();
     }
 
-
+    private void Update()
+    {
+       
+    }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -32,6 +39,7 @@ public class DraggableTask : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         instantiatedTask.transform.SetAsLastSibling();
         instantiatedTask.GetComponentInChildren<TextMeshProUGUI>().text = this.GetComponentInChildren<TextMeshProUGUI>().text;
         instantiatedTask.GetComponent<DraggedTask>().StartDraggedTask(task);
+        isDragging = true;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -55,10 +63,24 @@ public class DraggableTask : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             }
         }
         Destroy(instantiatedTask);
+        isDragging = false;
     }
 
     public void SetTask(Task newTask)
     {
         task = newTask;
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        isHovered = true;
+        playerManager.TaskInfoBox.OpenTaskInfoBox(task);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+
+        playerManager.TaskInfoBox.CloseTaskInfoBox();
+        isHovered = false;
     }
 }

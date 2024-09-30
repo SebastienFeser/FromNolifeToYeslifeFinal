@@ -15,6 +15,7 @@ public class Task : ScriptableObject
     }
 
     public string name;
+    public string description;
     public TaskCategory taskCategory;
 
     public int physicalConditionOutput;

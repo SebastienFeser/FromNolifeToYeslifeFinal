@@ -16,6 +16,13 @@ public class PlayerManager : MonoBehaviour
     int societalIntegration;
     int sociable;
 
+    [SerializeField] TaskInfoBox taskInfoBox;
+
+    public TaskInfoBox TaskInfoBox
+    {
+        get { return taskInfoBox; }
+    }
+
     public int IdeaPoints
     {
         get { return ideas; }
