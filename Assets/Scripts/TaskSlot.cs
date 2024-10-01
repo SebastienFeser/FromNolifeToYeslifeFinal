@@ -5,15 +5,20 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
 
-public class TaskSlot : MonoBehaviour
+public class TaskSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] Sprite taskedSprite;
     [SerializeField] Sprite unTaskedSprite;
     [SerializeField] Color taskedColor;
     [SerializeField] Color unTaskedColor;
     [SerializeField] GameObject deleteButton;
+    PlayerManager playerManager;
     Task task;
 
+    private void Start()
+    {
+        playerManager = FindObjectOfType<PlayerManager>();
+    }
     public void DropTask(Task newTask)
     {
         task = newTask;
@@ -32,5 +37,18 @@ public class TaskSlot : MonoBehaviour
         textMeshProUGUI.text = "Drag a Task";
         textMeshProUGUI.color = unTaskedColor;
         deleteButton.SetActive(false);
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if(task != null)
+        {
+            playerManager.TaskInfoBox.OpenTaskInfoBox(task);
+        }
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        playerManager.TaskInfoBox.CloseTaskInfoBox();
     }
 }
