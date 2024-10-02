@@ -15,6 +15,11 @@ public class TaskSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     PlayerManager playerManager;
     Task task;
 
+    public Task Task
+    {
+        get { return task; }
+    }
+
     private void Start()
     {
         playerManager = FindObjectOfType<PlayerManager>();
