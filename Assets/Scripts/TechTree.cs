@@ -7,6 +7,7 @@ public class TechTree : MonoBehaviour
 {
     [SerializeField] Transform techTreeTransform;
     Vector2 startPosition;
+    Vector2 startScale;
     Vector2 offset;
     private Vector3 mouseOrigin;
     [SerializeField] TechSlot startSlot;
@@ -17,6 +18,7 @@ public class TechTree : MonoBehaviour
     void Awake()
     {
         startPosition = techTreeTransform.position;
+        startScale = techTreeTransform.localScale;
         playerManager = FindObjectOfType<PlayerManager>();
     }
     private void Start()
@@ -27,6 +29,7 @@ public class TechTree : MonoBehaviour
     void Update()
     {
         MoveTechTree();
+        ZoomTechTree();
     }
 
     private void MoveTechTree()
@@ -46,9 +49,26 @@ public class TechTree : MonoBehaviour
         }
     }
 
+    private void ZoomTechTree()
+    {
+        Vector3 techTreeScale = techTreeTransform.localScale;
+        techTreeScale += new Vector3(Input.mouseScrollDelta.y * 0.1f, Input.mouseScrollDelta.y * 0.1f, 1f);
+
+        if(techTreeScale.x < 0.1f)
+        {
+            techTreeScale = new Vector3(0.1f, 0.1f, 1f);
+        }
+        else if (techTreeScale.x > 3f)
+        {
+            techTreeScale = new Vector3(3f, 3f, 1f);
+        }
+        techTreeTransform.localScale = techTreeScale;
+    }
+
     public void QuitTechTree()
     {
         techTreeTransform.position = startPosition;
+        techTreeTransform.localScale = startScale;
         gameObject.SetActive(false);
     }
 
