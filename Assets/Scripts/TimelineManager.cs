@@ -14,4 +14,10 @@ public class TimelineManager : MonoBehaviour
             clock.UpdateTimer();
         }
     }
+
+    public void StartTimeline()
+    {
+        activateTimeline = true;
+        clock.X0TimeSpeedMultiplier();
+    }
 }
