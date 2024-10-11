@@ -1,16 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Clock : MonoBehaviour
 {
 
     [SerializeField] float timeMultiplier;
+    [SerializeField] TextMeshProUGUI text;
     float timeSpeedMultiplier;
     int hoursDisplayed;
     int minutesDisplayed;
     float minutes;
 
+
+    public void StartTime()
+    {
+        hoursDisplayed = 9;
+        minutesDisplayed = 0;
+        minutes = 0;
+        text.text = hoursDisplayed.ToString("D2") + ":" + minutesDisplayed.ToString("D2");
+    }
 
     public void X0TimeSpeedMultiplier()
     {
@@ -34,17 +44,18 @@ public class Clock : MonoBehaviour
 
     public void UpdateTimer()
     {
+        text.text = hoursDisplayed.ToString("D2") + ":" + minutesDisplayed.ToString("D2");
         minutes += Time.deltaTime * timeMultiplier * timeSpeedMultiplier;
         if(minutes > 1f )
         {
-            if(minutes >= 59)
+            if(minutesDisplayed >= 59)
             {
                 hoursDisplayed++;
-                minutes = 0f;
+                minutesDisplayed = 0;
             }
             else
             {
-                minutes++;
+                minutesDisplayed++;
             }
             minutes -= 1f;
         }

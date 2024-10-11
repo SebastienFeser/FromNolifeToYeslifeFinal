@@ -6,6 +6,7 @@ public class TimelineManager : MonoBehaviour
 {
     [SerializeField] TaskSlotsManager TaskSlotsManager;
     [SerializeField] Clock clock;
+    [SerializeField] GameObject startDay;
     bool activateTimeline = false;
     private void Update()
     {
@@ -15,9 +16,15 @@ public class TimelineManager : MonoBehaviour
         }
     }
 
+    public void PreStartTimeline()
+    {
+        clock.StartTime();
+    }
+
     public void StartTimeline()
     {
         activateTimeline = true;
-        clock.X0TimeSpeedMultiplier();
+        startDay.SetActive(false);
+        clock.X1TimeSpeedMultiplier();
     }
 }
