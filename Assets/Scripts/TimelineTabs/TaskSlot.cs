@@ -9,11 +9,13 @@ public class TaskSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] Sprite taskedSprite;
     [SerializeField] Sprite unTaskedSprite;
+    [SerializeField] Sprite lockedSprite;
     [SerializeField] Color taskedColor;
     [SerializeField] Color unTaskedColor;
     [SerializeField] GameObject deleteButton;
     PlayerManager playerManager;
     Task task;
+    bool isLocked = false;
 
     public Task Task
     {
@@ -26,12 +28,15 @@ public class TaskSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     }
     public void DropTask(Task newTask)
     {
-        task = newTask;
-        GetComponent<Image>().sprite = taskedSprite;
-        TextMeshProUGUI textMeshProUGUI = GetComponentInChildren<TextMeshProUGUI>();
-        textMeshProUGUI.text = task.name;
-        textMeshProUGUI.color = taskedColor;
-        deleteButton.SetActive(true);
+        if (!isLocked)
+        {
+            task = newTask;
+            GetComponent<Image>().sprite = taskedSprite;
+            TextMeshProUGUI textMeshProUGUI = GetComponentInChildren<TextMeshProUGUI>();
+            textMeshProUGUI.text = task.name;
+            textMeshProUGUI.color = taskedColor;
+            deleteButton.SetActive(true);
+        }
     }
     
     public void DeleteTask()
@@ -42,6 +47,15 @@ public class TaskSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         textMeshProUGUI.text = "Drag a Task";
         textMeshProUGUI.color = unTaskedColor;
         deleteButton.SetActive(false);
+    }
+
+    public void LockTask()
+    {
+        GetComponent<Image>().sprite = lockedSprite;
+        TextMeshProUGUI textMeshProUGUI = GetComponentInChildren<TextMeshProUGUI>();
+        textMeshProUGUI.color = unTaskedColor;
+        deleteButton.SetActive(false);
+        isLocked = true;
     }
 
     public void OnPointerEnter(PointerEventData eventData)

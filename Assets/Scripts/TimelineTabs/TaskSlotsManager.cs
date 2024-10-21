@@ -39,4 +39,28 @@ public class TaskSlotsManager : MonoBehaviour
         }
     }
 
+    public TaskSlot GetTaskSlotAtTime(TimelineSlots timelineSlots)
+    {
+        switch (timelineSlots)
+        {
+            case TimelineSlots.H9:
+                return slot9h;
+                break;
+            case TimelineSlots.H12:
+                return slot12h;
+                break;
+            case TimelineSlots.H15:
+                return slot15h;
+                break;
+            case TimelineSlots.H18:
+                return slot18h;
+                break;
+            case TimelineSlots.H21:
+                return slot21h;
+                break;
+            default:
+                return null;
+        }
+    }
+
 }

@@ -92,6 +92,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taskedSprite: {fileID: 21300000, guid: 50995294132f68748a4e495cdb182c43, type: 3}
   unTaskedSprite: {fileID: 21300000, guid: 2713dde85affff948960f24841dc718c, type: 3}
+  lockedSprite: {fileID: 21300000, guid: 0f7c137eb219bfc4ba040b971ec0eb63, type: 3}
   taskedColor: {r: 0.36078432, g: 0.31764707, b: 0.52156866, a: 1}
   unTaskedColor: {r: 1, g: 1, b: 1, a: 1}
   deleteButton: {fileID: 5905032350407276318}

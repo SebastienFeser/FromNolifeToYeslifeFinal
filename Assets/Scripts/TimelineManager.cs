@@ -7,6 +7,7 @@ public class TimelineManager : MonoBehaviour
     [SerializeField] TaskSlotsManager TaskSlotsManager;
     [SerializeField] Clock clock;
     [SerializeField] GameObject startDay;
+    [SerializeField] CurrentTask currentTask;
     bool activateTimeline = false;
     private void Update()
     {
@@ -26,5 +27,6 @@ public class TimelineManager : MonoBehaviour
         activateTimeline = true;
         startDay.SetActive(false);
         clock.X1TimeSpeedMultiplier();
+        currentTask.StartCurrentTask();
     }
 }

@@ -8,10 +8,16 @@ public class Clock : MonoBehaviour
 
     [SerializeField] float timeMultiplier;
     [SerializeField] TextMeshProUGUI text;
+    GameStateManager gameStateManager;
     float timeSpeedMultiplier;
     int hoursDisplayed;
     int minutesDisplayed;
     float minutes;
+
+    private void Awake()
+    {
+        gameStateManager = FindObjectOfType<GameStateManager>();
+    }
 
 
     public void StartTime()
@@ -58,6 +64,40 @@ public class Clock : MonoBehaviour
                 minutesDisplayed++;
             }
             minutes -= 1f;
+        }
+
+        switch(gameStateManager.GetTimeDay())
+        {
+            case GameStateManager.TimeDay.H9:
+                if(hoursDisplayed >= 12)
+                {
+                    gameStateManager.SetTimeDay(GameStateManager.TimeDay.H12);
+                }
+                break;
+            case GameStateManager.TimeDay.H12:
+                if (hoursDisplayed >= 15)
+                {
+                    gameStateManager.SetTimeDay(GameStateManager.TimeDay.H15);
+                }
+                break;
+            case GameStateManager.TimeDay.H15:
+                if (hoursDisplayed >= 18)
+                {
+                    gameStateManager.SetTimeDay(GameStateManager.TimeDay.H18);
+                }
+                break;
+            case GameStateManager.TimeDay.H18:
+                if (hoursDisplayed >= 21)
+                {
+                    gameStateManager.SetTimeDay(GameStateManager.TimeDay.H21);
+                }
+                break;
+            case GameStateManager.TimeDay.H21:
+                if (hoursDisplayed >= 24)
+                {
+
+                }
+                break;
         }
     }
 }
