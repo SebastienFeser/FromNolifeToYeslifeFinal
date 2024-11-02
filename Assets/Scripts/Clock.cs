@@ -9,6 +9,7 @@ public class Clock : MonoBehaviour
     [SerializeField] float timeMultiplier;
     [SerializeField] TextMeshProUGUI text;
     GameStateManager gameStateManager;
+    GameManager gameManager;
     float timeSpeedMultiplier;
     int hoursDisplayed;
     int minutesDisplayed;
@@ -17,6 +18,7 @@ public class Clock : MonoBehaviour
     private void Awake()
     {
         gameStateManager = FindObjectOfType<GameStateManager>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
 
@@ -95,7 +97,10 @@ public class Clock : MonoBehaviour
             case GameStateManager.TimeDay.H21:
                 if (hoursDisplayed >= 24)
                 {
-
+                    gameStateManager.SetGameState(GameStateManager.GameState.END_DAY);
+                    gameManager.SwitchToEnd();
+                    X0TimeSpeedMultiplier();
+                    hoursDisplayed = 0;
                 }
                 break;
         }
