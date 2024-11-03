@@ -53,21 +53,23 @@ public class Clock : MonoBehaviour
     public void UpdateTimer()
     {
         text.text = hoursDisplayed.ToString("D2") + ":" + minutesDisplayed.ToString("D2");
-        minutes += Time.deltaTime * timeMultiplier * timeSpeedMultiplier;
-        if(minutes > 1f )
+        if (gameStateManager.GetGameState() == GameStateManager.GameState.TIMELINE)
         {
-            if(minutesDisplayed >= 59)
+            minutes += Time.deltaTime * timeMultiplier * timeSpeedMultiplier;
+            if (minutes > 1f)
             {
-                hoursDisplayed++;
-                minutesDisplayed = 0;
+                if (minutesDisplayed >= 59)
+                {
+                    hoursDisplayed++;
+                    minutesDisplayed = 0;
+                }
+                else
+                {
+                    minutesDisplayed++;
+                }
+                minutes -= 1f;
             }
-            else
-            {
-                minutesDisplayed++;
-            }
-            minutes -= 1f;
         }
-
         switch(gameStateManager.GetTimeDay())
         {
             case GameStateManager.TimeDay.H9:
